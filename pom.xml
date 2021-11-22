@@ -9,12 +9,19 @@
     <description>Spring PetClinic Discovery Server</description>
 
     <parent>
-        <groupId>org.springframework.samples</groupId>
-        <artifactId>spring-petclinic-microservices</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.1</version>
     </parent>
 
     <properties>
+        <java.version>1.8</java.version>
+        <assertj.version>3.17.1</assertj.version>
+
+        <spring.cloud.starter.bootstrap.version>3.0.4</spring.cloud.starter.bootstrap.version>
+        <spring.cloud.starter.config>3.0.5</spring.cloud.starter.config>
+        <spring.cloud.starter.netflix.eureka.server>3.0.4</spring.cloud.starter.netflix.eureka.server>
+
         <docker.image.exposed.port>8761</docker.image.exposed.port>
         <docker.image.dockerfile.dir>${basedir}/../docker</docker.image.dockerfile.dir>
     </properties>
@@ -31,14 +38,19 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>${spring.cloud.starter.bootstrap.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
+            <version>${spring.cloud.starter.config}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-server -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <version>${spring.cloud.starter.netflix.eureka.server}</version>
         </dependency>
 
         <!-- JAXB is required since Java 9 -->
